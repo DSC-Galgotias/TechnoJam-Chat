@@ -190,7 +190,9 @@ public class SettingsActivity extends AppCompatActivity {
 
                         if(task.isSuccessful()){
 
-                            final String download_url = task.getResult().getDownloadUrl().toString();
+
+                            final String download_url = task.getResult().getStorage().getDownloadUrl().toString();
+                                   // task.getResult().getDownloadUrl().toString();
 
                             UploadTask uploadTask = thumb_filepath.putBytes(thumb_byte);
                             uploadTask.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
@@ -226,7 +228,9 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void UploadTask(@NonNull Task<UploadTask.TaskSnapshot> thumb_task, String download_url) {
-        String thumb_downloadUrl = thumb_task.getResult().getDownloadUrl().toString();
+
+        String thumb_downloadUrl =  thumb_task.getResult().getStorage().getDownloadUrl().toString();
+              //  thumb_task.getResult().getDownloadUrl().toString();
 
         if(thumb_task.isSuccessful()){
 

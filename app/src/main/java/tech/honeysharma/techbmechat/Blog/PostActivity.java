@@ -97,7 +97,9 @@ public class PostActivity extends AppCompatActivity {
                     filePath.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            final Uri downloadUrl=taskSnapshot.getDownloadUrl();
+
+                            final Task<Uri> downloadUrl=taskSnapshot.getStorage().getDownloadUrl();
+                                   // taskSnapshot.getDownloadUrl();
                             final DatabaseReference newPost=mDatabase.push();
 
                             mDatabaseUser.addValueEventListener(new ValueEventListener() {

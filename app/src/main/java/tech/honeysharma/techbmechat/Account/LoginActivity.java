@@ -94,41 +94,56 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser(String email, String password) {
 
 
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if(task.isSuccessful()){
+                    if(task.isSuccessful()){
 
-                    mLoginProgress.dismiss();
+                        mLoginProgress.dismiss();
 
-                    String current_user_id = mAuth.getCurrentUser().getUid();
-                    String deviceToken = FirebaseInstanceId.getInstance().getToken();
+                        String current_user_id = mAuth.getCurrentUser().getUid();
+                        String deviceToken = FirebaseInstanceId.getInstance().getToken();
 
-                    mUserDatabase.child(current_user_id).child("device_token").setValue(deviceToken).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
+                        if (mAuth.getCurrentUser().isEmailVerified()) {
 
-                            Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
-                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(mainIntent);
-                            finish();
+                            mUserDatabase.child(current_user_id).child("device_token").setValue(deviceToken).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+
+                                    Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                    mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(mainIntent);
+                                    finish();
 
 
+                                }
+                            });
+
+
+                        } else {
+
+                            Toast.makeText(LoginActivity.this, "Account not verified yet! Unable to Login!", Toast.LENGTH_SHORT).show();
                         }
-                    });
-                } else {
 
-                    mLoginProgress.hide();
 
-                    String task_result = task.getException().getMessage().toString();
+                    } else {
 
-                    Toast.makeText(LoginActivity.this, "Error : " + task_result, Toast.LENGTH_LONG).show();
+                        mLoginProgress.hide();
+
+                        String task_result = task.getException().getMessage().toString();
+
+                        Toast.makeText(LoginActivity.this, "Error : " + task_result, Toast.LENGTH_LONG).show();
+
+                    }
 
                 }
+            });
 
-            }
-        });
+
+
+
+
 
 
     }
