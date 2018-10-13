@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:hint="Your Email"
             android:inputType="textEmailAddress"
-            />
+            android:importantForAutofill="noExcludeDescendants"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
-            />
+            android:importantForAutofill="noExcludeDescendants"/>
     </android.support.design.widget.TextInputLayout>
 
     <ImageView

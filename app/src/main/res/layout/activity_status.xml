@@ -23,6 +23,7 @@
         android:layout_marginTop="40dp">
 
         <EditText
+            android:importantForAutofill="noExcludeDescendants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Your Status" />

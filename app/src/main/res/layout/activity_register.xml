@@ -33,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_label">
 
         <EditText
+            android:importantForAutofill="noExcludeDescendants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/display_name" />
@@ -51,6 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/register_display_name">
 
         <EditText
+            android:importantForAutofill="noExcludeDescendants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
@@ -70,6 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/register_email">
 
         <EditText
+            android:importantForAutofill="noExcludeDescendants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
