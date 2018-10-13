@@ -2,10 +2,8 @@ package tech.honeysharma.techbmechat.Account;
 
 import android.content.Context;
 import android.content.Intent;
- development
 import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
- development
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;

@@ -6,6 +6,7 @@
     <color name="darkColor">#222222</color>
     <color name="yellow">#e6e600</color>
     <color name="whiteshade">#e5e5e5</color>
+    <color name="splashScreenColor">#232428</color>
 
 
 </resources>
