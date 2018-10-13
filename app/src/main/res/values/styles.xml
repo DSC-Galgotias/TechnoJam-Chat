@@ -21,6 +21,11 @@
         <item name="colorAccent">@color/yellow</item>
     </style>
 
+    <style name="InputTextStyle">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
 </resources>
 
 

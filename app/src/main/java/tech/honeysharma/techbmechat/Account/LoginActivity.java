@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +29,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import java.util.HashMap;
 
 import tech.honeysharma.techbmechat.R;
+import tech.honeysharma.techbmechat.Utility.StringUtils;
 
 
 /**
@@ -76,21 +80,30 @@ public class LoginActivity extends AppCompatActivity {
                 String email = mLoginEmail.getEditText().getText().toString();
                 String password = mLoginPassword.getEditText().getText().toString();
 
-                if(!TextUtils.isEmpty(email) || !TextUtils.isEmpty(password)){
-
+                if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && StringUtils.isEmailValid(email)){
                     mLoginProgress.setTitle("Logging In");
                     mLoginProgress.setMessage("Please wait while we check your credentials.");
                     mLoginProgress.setCanceledOnTouchOutside(false);
                     mLoginProgress.show();
 
                     loginUser(email, password);
-
+                } else {
+                    //TODO show error dialog
                 }
-
             }
         });
 
-
+        if (mLoginPassword.getEditText() != null) {
+            mLoginPassword.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        mLogin_btn.callOnClick();
+                    }
+                    return false;
+                }
+            });
+        }
     }
 
 

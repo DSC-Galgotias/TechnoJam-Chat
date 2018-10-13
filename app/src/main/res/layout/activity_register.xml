@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/whiteshade"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="tech.honeysharma.techbmechat.Account.RegisterActivity">
@@ -33,6 +32,8 @@
         app:layout_constraintTop_toBottomOf="@+id/login_label">
 
         <EditText
+            android:singleLine="true"
+            style="@style/InputTextStyle"
             android:importantForAutofill="noExcludeDescendants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,18 +53,18 @@
         app:layout_constraintTop_toBottomOf="@+id/register_display_name">
 
         <EditText
+            style="@style/InputTextStyle"
             android:importantForAutofill="noExcludeDescendants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:textColor="@android:color/white" />
+            android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/reg_password"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
@@ -72,6 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/register_email">
 
         <EditText
+            style="@style/InputTextStyle"
             android:importantForAutofill="noExcludeDescendants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
