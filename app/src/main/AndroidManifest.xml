@@ -26,7 +26,7 @@
             android:parentActivityName=".Account.MainActivity" />
         <activity
             android:name=".Account.AboutActivity"
-            android:parentActivityName=".Account.AboutActivity" />
+            android:parentActivityName=".Account.MainActivity" />
         <activity
             android:name=".Chat.StatusActivity"
             android:parentActivityName=".Account.SettingsActivity" />
