@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/blog_btn"
-        android:title="Events" />
+        android:title="Events"/>
 
     <item
         android:id="@+id/main_settings_btn"
-        android:title="Account Settings" />
+        android:title="Account Settings"/>
     <item
         android:id="@+id/main_all_btn"
-        android:title="All Users" />
+        android:title="All Users"/>
+
+    <item
+        android:id="@+id/about_btn"
+        android:title="About"/>
+
     <item
         android:id="@+id/main_logout_btn"
-        android:title="@string/log_out" />
+        android:title="@string/log_out"/>
 </menu>
