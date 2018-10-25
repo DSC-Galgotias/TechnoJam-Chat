@@ -1,45 +1,22 @@
 package tech.honeysharma.techbmechat.Blog;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ServerValue;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import tech.honeysharma.techbmechat.Account.MainActivity;
+import tech.honeysharma.techbmechat.Account.AboutActivity;
 import tech.honeysharma.techbmechat.Account.SettingsActivity;
 import tech.honeysharma.techbmechat.Account.StartActivity;
 import tech.honeysharma.techbmechat.Chat.UsersActivity;
@@ -154,6 +131,11 @@ public class BlogActivity extends AppCompatActivity {
             Intent settingsIntent = new Intent(BlogActivity.this, UsersActivity.class);
             startActivity(settingsIntent);
 
+        }
+
+        if (item.getItemId() == R.id.about_btn) {
+            Intent settingsIntent = new Intent(BlogActivity.this, AboutActivity.class);
+            startActivity(settingsIntent);
         }
 
         if (item.getItemId() == android.R.id.home) {
